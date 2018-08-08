@@ -1,0 +1,24 @@
+@font-face {
+    font-family: "Brandon Light";
+    src: url('../fonts/brandon/Brandon_light.otf');
+}
+
+@font-face {
+    font-family: "Brandon Regular";
+    src: url('../fonts/brandon/Brandon_reg.otf');
+}
+
+@font-face {
+    font-family: "Brandon Light Italic";
+    src: url('../fonts/brandon/Brandon_light_it.otf');
+}
+
+@font-face {
+    font-family: "Brandon Bold";
+    src: url('../fonts/brandon/Brandon_bld.otf');
+}
+
+@font-face {
+    font-family: "Brandon Medium";
+    src: url('../fonts/brandon/Brandon_med.otf');
+}

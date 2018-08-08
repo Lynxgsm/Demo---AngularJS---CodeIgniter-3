@@ -1,0 +1,1 @@
+angular.module('app', ['ngRoute', 'appRoutes', 'HomeController', 'loader', 'userFactory']);

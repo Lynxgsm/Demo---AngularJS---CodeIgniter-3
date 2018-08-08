@@ -1,0 +1,11 @@
+.modal {
+    min-height: 20vh;
+}
+
+#nom {
+    text-transform: uppercase;
+}
+
+#prenom {
+    text-transform: capitalize;
+}

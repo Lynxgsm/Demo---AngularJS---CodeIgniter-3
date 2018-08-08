@@ -1,0 +1,106 @@
+<div class="container">
+    <div class="row">
+        <div class="col" ng-class="{'l12':!edit_pending, 'l6':edit_pending}">
+            <div class="card">
+                <div class="card-content">
+                    <div class="row">
+                        <div class="col l8">
+                            <div class="input-field">
+                                <input type="text" id="search" ng-model="search">
+                                <label for="search">Rechercher</label>
+                            </div>
+                        </div>
+                        <div class="col l4">
+                            <button class="btn waves-effect waves-light" ng-click="edit_pending=!edit_pending; showInsert=!showInsert">Ajouter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <table class="responsive-table highlight">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nom</th>
+                                <th>Prénom</th>
+                                <th>Date naissance</th>
+                                <th colspan="2">Options</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="user in users | filter:{nom:search}">
+                                <td>{{user.id}}</td>
+                                <td>{{user.nom}}</td>
+                                <td>{{user.prenom}}</td>
+                                <td>{{user.date_naissance}}</td>
+                                <td>
+                                    <a href="" ng-click="init_update(user.id, user.nom, user.prenom, user.date_naissance)">
+                                        <span class="fa fa-pencil"></span>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="" ng-click="init_delete(user.id)">
+                                        <span class="fa fa-trash"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col l6" ng-show="showInsert">
+            <div class="card">
+                <div class="card-content">
+                    <div class="input-field">
+                        <input type="text" ng-model="nom" id="nom">
+                        <label for="nom">Nom</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" ng-model="prenom" id="prenom">
+                        <label for="nom">Prénom</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" class="datepicker" ng-model="date_naissance" id="date_naissance">
+                        <label for="date_naissance">Date de naissance</label>
+                    </div>
+                    <div class="center">
+                        <button class="btn waves-light waves-effect yellow black-text" ng-click="insert(nom, prenom, date_naissance)">Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col l6" ng-show="showUpdate">
+            <div class="card">
+                <div class="card-content">
+                    <div class="input-field">
+                        <input type="text" ng-model="nom_update" id="nom_update">
+                        <label for="nom">Nom</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" ng-model="prenom_update" id="prenom_update">
+                        <label for="nom">Prénom</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" class="datepicker" ng-model="date_naissance_update" id="date_naissance_update">
+                        <label for="date_naissance">Date de naissance</label>
+                    </div>
+                    <div class="center">
+                        <button class="btn waves-light waves-effect yellow black-text" ng-click="update()">Modifier</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="delete_modal" class="modal">
+    <div class="modal-content">
+        <h4>Voulez-vous vraiment supprimer l'utilisateur?</h4>
+    </div>
+    <div class="modal-footer">
+        <a href="" class="waves-effect waves-green btn-flat" ng-click="delete()">Effacer</a>
+        <a href="" class="modal-close waves-effect waves-green btn-flat">Fermer</a>
+    </div>
+</div>
